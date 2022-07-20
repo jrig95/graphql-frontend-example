@@ -3,6 +3,7 @@ import MyButton from "../UI/MyButton.jsx";
 import { useState } from "react";
 import { useLazyQuery, useMutation } from "@apollo/client";
 import { gql } from "@apollo/client";
+import Input from "../UI/InputField.jsx"
 
 const CITIESQUERY = gql`
   query Cities {
@@ -104,20 +105,52 @@ const FormCard = () => {
   );
   return (
     <div>
-      <MyButton
-        onClick={getCities}
-        sx={{ color: "orange" }}
-        text="Get Cities"
-      ></MyButton>
+      <h1>GraphQL React Frontend</h1>
       <div>
         <h1>id</h1>
-        <input type={id} value={id} onChange={handleIdChange} />
+        <Input
+          variant="outlined"
+          label="Id"
+          id="outlined-basic"
+          type={id}
+          value={id}
+          onChange={handleIdChange}
+        />
         <h1>city</h1>
-        <input type="text" value={city} onChange={handleCityChange} />
+        <Input
+          variant="outlined"
+          label="City"
+          id="outlined-basic"
+          type="text"
+          value={city}
+          onChange={handleCityChange}
+        />
         <h1>country</h1>
-        <input type="text" value={country} onChange={handleCountryChange} />
+        <Input
+          variant="outlined"
+          label="Country"
+          id="outlined-basic"
+          type="text"
+          value={country}
+          onChange={handleCountryChange}
+        />
         <h1>state</h1>
-        <input type="text" value={state} onChange={handleStateChange} />
+        <Input
+          variant="outlined"
+          label="State"
+          id="outlined-basic"
+          type="text"
+          value={state}
+          onChange={handleStateChange}
+        />
+
+        <MyButton
+          onClick={getCities}
+          variant="contained"
+          text="Get Cities"
+          sx={{ width: 110, padding: 1, margin: 2 }}
+        ></MyButton>
+
         <MyButton
           onClick={() =>
             createCity({
@@ -125,6 +158,9 @@ const FormCard = () => {
             })
           }
           text="Add City"
+          color="success"
+          variant="contained"
+          sx={{ width: 110, padding: 1, margin: 2 }}
         ></MyButton>
 
         <MyButton
@@ -139,12 +175,17 @@ const FormCard = () => {
             })
           }
           text="Update City"
+          color="secondary"
+          variant="contained"
+          sx={{ width: 110, padding: 1, margin: 2 }}
         ></MyButton>
 
         <MyButton
-          sx={{ width: "200px" }}
           onClick={() => deleteCity({ variables: { id: parseInt(id) } })}
           text="Delete City"
+          color="error"
+          variant="contained"
+          sx={{ width: 110, padding: 1, margin: 2 }}
         ></MyButton>
       </div>
     </div>

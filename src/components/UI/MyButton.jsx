@@ -1,12 +1,13 @@
 import React from "react";
+import Button from "@mui/material/Button";
 // import Button from "@material-ui/core/Button";
 
-const MyButton = ({ onClick, text }) => {
+const MyButton = ({variant, onClick, text, color, sx }) => {
   return (
     <div className="button">
-      <button variant="contained" onClick={onClick}>
+      <Button variant={variant} color={color} onClick={onClick} sx={sx}>
         {text}
-      </button>
+      </Button>
     </div>
   );
 };
