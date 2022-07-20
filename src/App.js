@@ -11,7 +11,7 @@ import FormCard from './components/Form/FormCard.jsx'
 function App() {
 
   return (
-    <div className="App">
+    <div className="App" style={{  alignItems: "center", display: 'flex', justifyContent:'center', height: '100vh' }}>
       <FormCard />
 
 
